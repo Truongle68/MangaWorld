@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -13,8 +12,8 @@ const HomeNavbar = () => {
     }
 
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
-      <Container >
+    <Navbar expand="lg" className="nav-bar bg-body-tertiary">
+      <div className='container' >
         {/* <Navbar.Brand href="#">Navbar scroll</Navbar.Brand> */}
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
@@ -75,7 +74,7 @@ const HomeNavbar = () => {
           </Form>
           
         </Navbar.Collapse>
-      </Container>
+      </div>
     </Navbar>
   );
 }

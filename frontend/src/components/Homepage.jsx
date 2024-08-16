@@ -1,10 +1,17 @@
 import React from 'react'
-import HomeNavbar from './Navbar'
+import RecommentList from './RecommentList'
+import Banner from './Banner'
+import MangaList from './MangaList'
 
 const Homepage = () => {
   return (
-    <div>
-        <HomeNavbar/>
+    <div className='containers'>
+      <div className=' white-board'>
+        <RecommentList/>
+        <Banner/>
+        <MangaList/>
+      </div>
+
     </div>
   )
 }

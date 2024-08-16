@@ -2,6 +2,18 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
+}
+#root{
+    background-color: #e4e1e1e1;
+    min-height: 100vh;     
+}
+.containers{
+    max-width: 80%;
+    margin: 10px auto;
+}
+.nav-bar{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .search-box{
     border: 1px solid #0000004f;
@@ -26,5 +38,19 @@
         position: absolute;
         left: 0;
         padding: 0 7px;
+    }
+}
+.white-board{
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    width: 100%;
+}
+/* Recomment manga */
+.manga{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    img{
+        width: 175px;
+        height: 245px;
     }
 }
