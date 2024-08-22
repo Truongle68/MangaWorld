@@ -65,7 +65,7 @@ const HomeNavbar = () => {
           </Nav>
           <Form className="d-flex">
             <div className='search-box'>
-                <input type='text' placeholder='Search: English, Japanese name'/>
+                <input type='text' placeholder='Search: English, Vietnamese name'/>
                 <i className="search-icon fa-solid fa-magnifying-glass"></i>
             </div>           
             

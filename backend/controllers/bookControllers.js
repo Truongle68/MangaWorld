@@ -4,8 +4,9 @@ const saveNewBook = async(req,res) => {
     try {
         if(
             !req.body.title ||
-            !req.body.author ||
-            !req.body.publishYear
+            !req.body.genres ||
+            !req.body.img ||
+            !req.body.status
         ){
             return res.status(400).send({
                 message: 'Send all required fields: title, author, publishYear'
@@ -14,8 +15,13 @@ const saveNewBook = async(req,res) => {
         const newBook = {
             title: req.body.title,
             author: req.body.author,
+            genres: req.body.genres,
+            synopsis: req.body.synopsis,
             publishYear: req.body.publishYear,
-            status: req.body.status
+            img: req.body.img,
+            banner: req.body.banner,
+            status: req.body.status,
+            vote: req.body.vote
         }
         const book = await Book.create(newBook)
 

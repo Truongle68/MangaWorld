@@ -10,17 +10,37 @@ const bookSchema = mongoose.Schema(
             type: String,
             require: true
         },
+        genres: {
+            type:String,
+            require: true
+        },
+        description:{
+            type:String,
+            require:true
+        },
         publishYear: {
             type: Number,
             require: true
         },
+        img: {
+            type: String,
+            require: true
+        },
+        banner:{
+            type: String,
+            require: true
+        },
         status: {
-            //0: Done 
+            //3: Done 
             //1: Ongoing
             //2: Paused 
             type: Number,
             require: true
-        }
+        },
+        vote:{
+            type:Number,
+            require:true
+        },
     },
     {
         timestamps: true,
