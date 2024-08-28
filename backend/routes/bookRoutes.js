@@ -1,8 +1,8 @@
 const express = require('express')
-const { saveNewBook, fetchBooks, changeBookStatus } = require('../controllers/bookControllers')
+const { saveNewManga, fetchMangas, changeMangaStatus } = require('../controllers/bookControllers')
 const router = express.Router()
 
-router.route('/').post(saveNewBook).get(fetchBooks)
-router.route('/edit').put(changeBookStatus)
+router.route('/').post(saveNewManga).get(fetchMangas)
+router.route('/edit').put(changeMangaStatus)
 
 module.exports = router

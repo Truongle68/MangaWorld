@@ -8,7 +8,6 @@ const RecommentList = () => {
 
     useEffect(() => {
         setMangaList(JSON.parse(localStorage.getItem('mangaList')))
-        console.log(mangaList)
     }, [])
 
     const handlePrev = () => {
@@ -33,7 +32,7 @@ const RecommentList = () => {
             <h3 className='title'>Recomment Manga</h3>
             <div className='list-container'>
                 <Button className='left-btn' variant='danger' onClick={handlePrev}><i className="fa-solid fa-chevron-left"></i></Button>
-                <div className='manga' style={{ transform: `translateX(-${currentIndex * 199}px)` }}>
+                <div className='manga' style={{ transform: `translateX(-${currentIndex * 201}px)` }}>
 
                     {mangaList!=null && mangaList.length>0 &&
                      mangaList.map((m) => {
@@ -54,7 +53,7 @@ const RecommentList = () => {
 
                                     </div>
                                     <span className='read'>READ</span>
-
+                                    <span className='vote'><i className="fa-solid fa-star"></i> {m.vote}</span>
                                 </Card>
                                 <Tooltip id='mytooltip' />
                             </React.Fragment>

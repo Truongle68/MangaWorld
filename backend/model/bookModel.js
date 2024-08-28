@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const bookSchema = mongoose.Schema(
+const MangaSchema = mongoose.Schema(
     {
         title: {
             type: String,
@@ -14,7 +14,7 @@ const bookSchema = mongoose.Schema(
             type:String,
             require: true
         },
-        description:{
+        synopsis:{
             type:String,
             require:true
         },
@@ -47,5 +47,5 @@ const bookSchema = mongoose.Schema(
     }
 )
 
-const Book = mongoose.model('book', bookSchema)
-module.exports = Book
+const Manga = mongoose.model('book', MangaSchema)
+module.exports = Manga

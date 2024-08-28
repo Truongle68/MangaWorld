@@ -4,12 +4,42 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import SearchList from './SearchList';
+import { searchManga } from '../services/mangaServices';
 
 const HomeNavbar = () => {
     const [openDropDown, setOpenDropDown] = useState('')
+    const [search, setSearch] = useState('')
+    const [searchResult, setSearchResult] = useState([])
+    
     const handleToggle = (isOpen, dropdownId) => {
         setOpenDropDown(isOpen ? dropdownId : '')
     }
+
+    const handleSearch = async() => {
+      if(!search || search.trim()===''){
+        setSearchResult([])
+        console.log('Enter something to search')
+        return
+      }
+      try {
+        const {data} = await searchManga(search)
+        console.log(data)
+        setSearchResult(data)
+      } catch (error) {
+        console.error(error.message)
+      }
+    }
+
+    const handleInputChange = (e) => {
+      const value = e.target.value;
+      setSearch(value);
+      
+      if (value.trim() === '') {
+        setSearchResult([]);
+      }
+      handleSearch()
+    };
 
   return (
     <Navbar expand="lg" className="nav-bar bg-body-tertiary">
@@ -63,12 +93,21 @@ const HomeNavbar = () => {
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
-          <Form className="d-flex">
+          <Form className="d-flex" style={{position:'relative'}}>
             <div className='search-box'>
-                <input type='text' placeholder='Search: English, Vietnamese name'/>
-                <i className="search-icon fa-solid fa-magnifying-glass"></i>
+                <input 
+                  type='text' 
+                  placeholder='Search: English, Vietnamese name'
+                  value={search}  
+                  onChange={handleInputChange}
+                />
+                <i 
+                  className="search-icon fa-solid fa-magnifying-glass"
+                ></i>
             </div>           
-            
+            <SearchList
+              searchResult={searchResult}
+            />
             
             <Button variant="outline-success">Login</Button>
           </Form>

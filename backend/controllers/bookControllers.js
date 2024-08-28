@@ -1,6 +1,6 @@
-const Book = require('../model/bookModel')
+const Manga = require('../model/bookModel')
 
-const saveNewBook = async(req,res) => {
+const saveNewManga = async(req,res) => {
     try {
         if(
             !req.body.title ||
@@ -12,7 +12,7 @@ const saveNewBook = async(req,res) => {
                 message: 'Send all required fields: title, author, publishYear'
             })
         }
-        const newBook = {
+        const newManga = {
             title: req.body.title,
             author: req.body.author,
             genres: req.body.genres,
@@ -23,39 +23,44 @@ const saveNewBook = async(req,res) => {
             status: req.body.status,
             vote: req.body.vote
         }
-        const book = await Book.create(newBook)
+        const manga = await Manga.create(newManga)
 
-        return res.status(201).send(book)
+        return res.status(201).send(manga)
     } catch (error) {
         res.status(500).send({message: error.message})
     }
 }
 
-const fetchBooks = async(req,res) => {
+const fetchMangas = async(req,res) => {
     try {
-        const books = await Book.find({})
+        const keyword = req.query.search
+        ? {
+            title: {$regex: req.query.search, $options: "i"}
+        }
+        : {}
+        const mangas = await Manga.find(keyword)
 
-        return res.status(200).json(books)
+        return res.status(200).json(mangas)
     } catch (error) {
         res.status(500).send({message: error.message})
     }
 }
 
-const changeBookStatus = async(req,res) => {
+const changeMangaStatus = async(req,res) => {
     try {
-        const book = await Book.findByIdAndUpdate(
+        const manga = await Manga.findByIdAndUpdate(
             req.body._id,
             {status: req.body.status},
             {new: true}
         )
-        return res.status(200).json(book)
+        return res.status(200).json(manga)
     } catch (error) {
         res.status(500).send({message: error.message})
     }
 }
 
 module.exports = {
-    saveNewBook,
-    fetchBooks,
-    changeBookStatus
+    saveNewManga,
+    fetchMangas,
+    changeMangaStatus
 }
