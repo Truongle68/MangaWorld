@@ -1,12 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
 const SearchList = (props) => {
     const {searchResult} = props
-    const [mangaList, setMangaList] = useState([])
-
-    useEffect(()=>{
-        setMangaList(JSON.parse(localStorage.getItem('mangaList')))
-    },[])
 
   return (
     <div className='searchlist-container'>

@@ -2,6 +2,7 @@ require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
 const bookRoute = require('./routes/bookRoutes')
+const userRoute = require('./routes/userRoutes')
 const cors = require('cors')
 
 const app = express()
@@ -12,6 +13,7 @@ app.use(express.json())
 app.use(cors())
 
 app.use('/api/books',bookRoute)
+// app.use('/api/user',userRoute)
 
 mongoose
     .connect(mongoURI)

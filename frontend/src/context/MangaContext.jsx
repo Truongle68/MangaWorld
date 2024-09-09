@@ -1,19 +1,25 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
 const MangaContext = createContext()
 
 const MangaProvider = ({children}) => {
-    const [mangaList, setMangaList] = useState([])
+    const [user, setUser] = useState({})
     const navigate = useNavigate()
 
     useEffect(()=>{
-        const mangaList = JSON.parse(localStorage.getItem('mangaList'))
-        console.log(mangaList)
-        if(!mangaList){
-            navigate('/')
-        }
+        const userInfo = JSON.parse(localStorage.getItem('userInfo'))
+        setUser(userInfo)
     },[navigate])
+
+    return(
+        <MangaContext.Provider value={{
+            user,
+            setUser
+        }}> 
+            {children}
+        </MangaContext.Provider>
+    )
 }
 
 export const MangaState = () => {

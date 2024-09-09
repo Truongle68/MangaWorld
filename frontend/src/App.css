@@ -17,6 +17,54 @@
 
 .nav-bar {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    .userInfo {
+        position: relative;
+
+        i {
+            cursor: pointer;
+
+        }
+
+        .userPic {
+            width: 45.6px;
+            border-radius: 50%;
+        }
+
+        .userInfo-dropdown {
+            display: block;
+            position: absolute;
+            right: 0;
+            top: 50px;
+            width: max-content;
+            background-color: #fff;
+            border: 1px solid #dadada;
+            border-radius: 5px;
+            opacity: 1;
+            max-height: 200px;
+            transition: opacity 0.3s ease, max-height 0.3s ease;
+            z-index: 1;
+            .dropdown-container{
+                margin: 10px 0;
+            }
+            p {
+                display: flex;
+                width: 100%;
+                margin: 0 auto;
+                padding: 10px;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+                cursor: pointer;
+            }
+            p:hover{
+                background-color: rgb(248, 249, 250);
+            }
+        }
+
+        .userInfo-dropdown.hide {
+            opacity: 0;
+            max-height: 0;
+        }
+    }
+
 }
 
 .search-box {
@@ -28,6 +76,7 @@
     padding-left: 20px;
     margin-right: 15px;
     position: relative;
+
     input {
         border: none;
         outline: none;
@@ -38,7 +87,7 @@
 
     input:focus::placeholder {
         color: #000;
-        
+
     }
 
     .search-icon {
@@ -60,6 +109,36 @@
     background-color: #fff;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     width: 100%;
+    min-height: 90vh;
+    align-content: center;
+}
+
+/* Login form */
+.login-form {
+    max-width: 900px;
+    margin: 0 auto;
+    border: 1px solid #dadada;
+    border-radius: 5px;
+    padding: 100px 250px;
+    background-color: rgba(0, 0, 0, 0.1);
+
+    h1 {
+        text-align: center;
+    }
+}
+
+/* Register form */
+.regis-form {
+    max-width: 900px;
+    margin: 20px auto;
+    border: 1px solid #dadada;
+    border-radius: 5px;
+    padding: 60px 250px;
+    background-color: rgba(0, 0, 0, 0.1);
+
+    h1 {
+        text-align: center;
+    }
 }
 
 /* Recomment manga */
@@ -81,12 +160,13 @@
         width: calc(6 * 175px + 5 * 26px);
         /* width: 6pics + 5gaps between them */
         transition: transform 0.45s ease;
-    
+
         .manga-content {
             position: relative;
             margin: 0 auto;
             cursor: pointer;
-            .vote{
+
+            .vote {
                 position: absolute;
                 top: 7px;
                 left: 12px;
@@ -98,37 +178,37 @@
                 border-radius: 45%;
             }
         }
-    
+
         .manga-content:hover {
             background-color: #2c2c2c;
             transition: background-color 0.45s ease;
             flex-shrink: 0;
-    
+
             img {
                 opacity: 40%;
             }
-    
+
             p {
                 opacity: 40%;
             }
-    
+
             .read {
                 display: block;
             }
         }
-    
+
         #mytooltip {
             background-color: #fff;
             color: #000;
             border: 1px solid #ccc;
         }
-    
+
         img {
             width: 175px;
             height: 245px;
             object-fit: cover;
         }
-    
+
         .manga-body {
             position: absolute;
             bottom: 0;
@@ -137,11 +217,11 @@
             width: 175px;
             height: 50px;
         }
-    
+
         .body-content {
             margin: 2px 5px;
         }
-    
+
         p {
             text-align: center;
             white-space: nowrap;
@@ -150,9 +230,9 @@
             /* hide the overflow text */
             text-overflow: ellipsis;
             /* show "..." where the text overflows */
-    
+
         }
-    
+
         .read {
             font-size: 20px;
             font-weight: 500;
@@ -173,9 +253,9 @@
             display: none;
         }
     }
-    
-    
-    
+
+
+
     .left-btn,
     .right-btn {
         height: 50px;
@@ -184,13 +264,13 @@
         top: 50%;
         transform: translateY(-50%);
     }
-    
+
     .left-btn {
         position: absolute;
         left: 0;
         z-index: 1;
     }
-    
+
     .right-btn {
         position: absolute;
         right: 0;
@@ -280,29 +360,35 @@
     opacity: 1;
     /* Active page indicator color */
 }
+
 /* Weekly Manga List */
-.wml-container{
+.wml-container {
     background-color: #ccc;
     width: 30%;
     height: fit-content;
     margin: 0 auto;
     border-radius: 3px;
-    .header{
+
+    .header {
         padding: 0 15px;
         padding-top: 10px;
         border-bottom: 1px solid #2c2c2c;
     }
-    .wml-content{
+
+    .wml-content {
         padding: 10px 10px;
-        .content-container{
+
+        .content-container {
             padding: 5px 5px;
             display: flex;
             position: relative;
-            img{
+
+            img {
                 width: 80px;
                 height: 100px;
                 border-radius: 2px;
             }
+
             .bookmark-shape {
                 width: 30px;
                 height: 40px;
@@ -319,59 +405,68 @@
                 clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%);
                 position: absolute;
 
-              }
-            .content-desc{
+            }
+
+            .content-desc {
                 margin-left: 10px;
                 width: 250px;
-                .name{
 
-                }
-                .element{
-                    .vote{
+                .name {}
+
+                .element {
+                    .vote {
                         color: #79c317;
                     }
                 }
             }
         }
-        .content-container:hover{
+
+        .content-container:hover {
             background-color: #acacac;
             cursor: pointer;
             border-radius: 3px;
             opacity: 0.8;
             transition: 0.45s ease;
-            .element .vote{
+
+            .element .vote {
                 color: #92ee1a;
             }
         }
     }
-    
+
 }
+
 /*list manga: NEW  */
-.new-container{
+.new-container {
     width: 800px;
     margin: 10px 0;
     margin-left: 18px;
     background-color: #acacac;
     overflow-y: auto;
-    h2{
+
+    h2 {
         padding-top: 10px;
         padding-left: 15px;
     }
-    .list-container{
+
+    .list-container {
         display: grid;
         grid-template-columns: repeat(auto-fill, 175px);
         gap: 20px;
         width: calc(4*175px+3*20px);
         max-width: 95%;
         margin: 20px auto;
-        .manga-content{
+
+        .manga-content {
             position: relative;
-            img{
+
+            img {
                 width: 175px;
                 height: 235px;
             }
-            .manga-body{
-                .name{
+
+            .manga-body {
+                .name {
                     text-align: center;
                     overflow: hidden;
                     white-space: nowrap;
@@ -379,6 +474,7 @@
                     padding: 10px 8px;
                 }
             }
+
             .read {
                 font-size: 20px;
                 font-weight: 500;
@@ -395,7 +491,8 @@
                 z-index: 2;
                 display: none;
             }
-            .vote{
+
+            .vote {
                 position: absolute;
                 top: 7px;
                 left: 12px;
@@ -407,84 +504,99 @@
                 border-radius: 45%;
             }
         }
-        .manga-content:hover{
+
+        .manga-content:hover {
             cursor: pointer;
             background-color: #2c2c2c;
             transition: background-color 0.45s ease;
-    
+
             img {
                 opacity: 40%;
             }
-    
+
             p {
                 opacity: 40%;
                 color: #fff;
             }
-    
+
             .read {
                 display: block;
             }
         }
     }
-    .btn{
+
+    .btn {
         width: 100%;
-        button{
+
+        button {
             width: 100%;
-            background-color: rgba(0, 0, 0,0.4);
+            background-color: rgba(0, 0, 0, 0.4);
             border: none;
             color: #fff;
             font-weight: 500;
             font-size: 18px;
         }
-        button:hover{
-            background-color: rgba(0, 0, 0,0.7);
+
+        button:hover {
+            background-color: rgba(0, 0, 0, 0.7);
             transition: 0.45s ease;
         }
     }
-    .btn.hide{
+
+    .btn.hide {
         display: none;
     }
 }
+
 /* Search List */
-.searchlist-container{
+.searchlist-container {
     background-color: #f5f0f0;
     width: 100%;
     z-index: 2;
     position: absolute;
     top: 50px;
-    .search-result{
+
+    .search-result {
         display: flex;
         padding: 3px;
-        img{
+
+        img {
             width: 40px;
             transition: width 0.3s ease;
         }
-        .content{
+
+        .content {
             margin-left: 5px;
-            .name{
+
+            .name {
                 font-weight: 500;
                 font-size: 14px;
             }
-            .description{
+
+            .description {
                 display: none;
                 transition: display 0.3s ease;
             }
-            p{
+
+            p {
                 font-size: 12px;
                 margin: 0;
             }
         }
     }
-    .search-result:hover{
+
+    .search-result:hover {
         background-color: rgb(225, 231, 245);
         cursor: pointer;
         transition: background-color 0.45s ease;
-        img{
+
+        img {
             width: 70px;
         }
-        .description{
+
+        .description {
             display: block;
-        
+
         }
     }
 }

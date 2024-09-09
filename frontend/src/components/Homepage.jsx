@@ -7,10 +7,11 @@ import WeeklyMangaList from './WeeklyMangaList'
 
 const Homepage = () => {
 
-  const fetchAllMangas = async (req, res) => {
+  const fetchAllMangas = async () => {
     const { data } = await fetchBooks()
-    localStorage.setItem('mangaList', JSON.stringify(data))
+    localStorage.setItem('mangaList',JSON.stringify(data))
   }
+
   useEffect(() => {
     fetchAllMangas()
   }, [])

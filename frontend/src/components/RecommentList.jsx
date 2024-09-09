@@ -6,9 +6,9 @@ const RecommentList = () => {
     const [currentIndex, setCurrentIndex] = useState(0)
     const [mangaList, setMangaList] = useState([])
 
-    useEffect(() => {
+    useEffect(()=>{
         setMangaList(JSON.parse(localStorage.getItem('mangaList')))
-    }, [])
+    },[])
 
     const handlePrev = () => {
         if (currentIndex > 0) {
