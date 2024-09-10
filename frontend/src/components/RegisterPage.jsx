@@ -17,6 +17,10 @@ const RegisterPage = () => {
                             <Form.Control type='text' placeholder='Enter your username' />
                         </Form.Group>
                         <Form.Group className='mb-3'>
+                            <Form.Label>Email</Form.Label>
+                            <Form.Control type='email' placeholder='Enter your email' />
+                        </Form.Group>
+                        <Form.Group className='mb-3'>
                             <Form.Label>Password</Form.Label>
                             <Form.Control type='Password' placeholder='Enter your password' />
                         </Form.Group>
@@ -24,10 +28,7 @@ const RegisterPage = () => {
                             <Form.Label>Re-enter Password</Form.Label>
                             <Form.Control type='Password' placeholder='Re-enter your password' />
                         </Form.Group>
-                        <Form.Group className='mb-3'>
-                            <Form.Label>Email</Form.Label>
-                            <Form.Control type='email' placeholder='Enter your email' />
-                        </Form.Group>
+                        
                         
                         <Button>Register</Button>
                         <p>or</p>

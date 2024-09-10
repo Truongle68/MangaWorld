@@ -4,6 +4,7 @@ const mongoose = require('mongoose')
 const bookRoute = require('./routes/bookRoutes')
 const userRoute = require('./routes/userRoutes')
 const cors = require('cors')
+const { notFound, errorHandle } = require('./middleware/errorMiddleware')
 
 const app = express()
 const port = process.env.PORT || 3500
@@ -13,7 +14,10 @@ app.use(express.json())
 app.use(cors())
 
 app.use('/api/books',bookRoute)
-// app.use('/api/user',userRoute)
+app.use('/api/users',userRoute)
+
+app.use(notFound)
+app.use(errorHandle)
 
 mongoose
     .connect(mongoURI)
